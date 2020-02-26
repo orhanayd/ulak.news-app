@@ -1,0 +1,10 @@
+
+.DS_Store
+key
+.env
+node_modules/
+*.lock
+*.log
+.expo/packager-info.json
+.expo-shared/assets.json
+.expo/settings.json
