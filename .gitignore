@@ -3,8 +3,10 @@
 key
 .env
 node_modules/
-*.lock
-*.log
-.expo/packager-info.json
+expo/packager-info.json
 .expo-shared/assets.json
 .expo/settings.json
+.expo/packager-info.json
+yarn.lock
+yarn-error.log
+package-lock.json
