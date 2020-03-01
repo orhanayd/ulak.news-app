@@ -35,7 +35,7 @@ class HomeScreen extends React.Component {
 
     await this.setState({ isReady: false, newsData: [], loadingText: <ActivityIndicator size={'large'} />, error: false });
 
-    let getNewsData = await api.getAllNews();
+    let getNewsData = await api.getAllNews(20);
 
     if(getNewsData){
       this.setState({ isReady: true, newsData: getNewsData[0].data });

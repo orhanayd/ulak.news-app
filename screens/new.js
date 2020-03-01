@@ -53,6 +53,7 @@ class New extends React.Component {
 
     if(getNewData){
       if(getNewData[0].data.status){
+        getNewData[0].data.result[0].text = getNewData[0].data.result[0].text.replace(/style="[^"]*"/g, '');
         this.setState({ isReady: true, newData: getNewData[0].data.result[0] });
       }else{
         this.setState({ loadingText: getNewData[0].data.desc, isReady: false });
@@ -84,7 +85,7 @@ class New extends React.Component {
           <Card style={{flex: 0}}>
             <CardItem>
               <Left>
-                <Thumbnail source={{uri: "https://images.ulak.news/images/web/"+newData.agency+".png"}} />
+                <Thumbnail source={{uri: "https://images.ulak.news/images/web/"+newData.agency+".webp"}} />
                 <Body>
                   <Text>{unescape(funcs.decodeHtmlEntity(newData.title))}</Text>
                   <Text note>{newData.date}</Text>

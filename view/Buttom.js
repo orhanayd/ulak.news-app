@@ -4,7 +4,7 @@ import { Footer, Icon, FooterTab, Button, Text } from "native-base";
 const routes = [
   {title: "Ana Sayfa", icon: 'home', iconType: 'Entypo', key: "Home"},
   {title: "Ajanslar", icon: 'network', iconType: 'Entypo', key: "Agency"},
-  {title: "Haberlerde Ara", icon: 'search1', iconType: 'AntDesign', key: "Search"},
+  {title: "Ara", icon: 'search1', iconType: 'AntDesign', key: "Search"},
 ];
 
 const INITIAL_STATE = {

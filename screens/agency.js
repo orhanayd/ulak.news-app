@@ -50,7 +50,7 @@ class Agency extends React.Component {
   async getAgencyNews(agency){
     console.log("new.js => getAgencyNews("+agency+")")
     await this.setState({ isReady: false, agencyNews: [], error: false });
-    let getAgencyNewsData = await api.getAgencyNews(agency);
+    let getAgencyNewsData = await api.getAgencyNews(agency, 20);
 
     if(getAgencyNewsData){
       if(getAgencyNewsData[0].data.status){

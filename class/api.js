@@ -8,9 +8,15 @@ class Api {
         this.token = TOKEN;
     }
     
-    async getAllNews() {
+    /**
+     * get all news
+     * 
+     * @param {int} limit 
+     * @return {Array}
+     */
+    async getAllNews(limit=20) {
         try {
-            let api = await axios.get( this.api_url + "/news", {
+            let api = await axios.get( this.api_url + "/news?limit="+limit, {
                 headers: { Authorization: this.token }
             });
             return await Promise.all([api]);
@@ -18,6 +24,14 @@ class Api {
             return false;
         }
     }
+
+    /**
+     * get new
+     * 
+     * @param {int} id 
+     * @param {string} agency 
+     * @return {Array}
+     */
     async getNew(id, agency) {
         try {
             let api = await axios.get( this.api_url + "/news/"+agency+"/"+id, {
@@ -29,6 +43,10 @@ class Api {
         }
     }
 
+    /**
+     * get agencies
+     * 
+     */
     async getAgencies() {
         try {
             let api = await axios.get( this.api_url + "/agencies", {
@@ -40,9 +58,15 @@ class Api {
         }
     }
 
-    async getAgencyNews(agency) {
+    /**
+     * 
+     * @param {string} agency 
+     * @param {int} limit 
+     * @return {Array}
+     */
+    async getAgencyNews(agency, limit=20) {
         try {
-            let api = await axios.get( this.api_url + "/news/"+agency, {
+            let api = await axios.get( this.api_url + "/news/"+agency+"?limit="+limit, {
                 headers: { Authorization: this.token }
             });
             return await Promise.all([api]);
@@ -51,6 +75,12 @@ class Api {
         }
     }
 
+    /**
+     * 
+     * @param {string} q 
+     * @param {int} limit 
+     * @return {Array}
+     */
     async getSearchNews(q, limit=15) {
         try {
             let api = await axios.get( this.api_url + "/search?q="+q+"&limit="+limit, {

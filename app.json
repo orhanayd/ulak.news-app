@@ -10,7 +10,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/ulak.png",
     "splash": {
@@ -26,7 +26,7 @@
     ],
     "android": {
       "package": "news.ulak.apk",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": [
       ]
     }

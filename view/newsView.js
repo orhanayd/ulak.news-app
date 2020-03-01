@@ -16,18 +16,6 @@ class newsView extends React.Component {
     };
   }
 
-  handleOnScroll = event => {
-    let offsetY = event.nativeEvent.contentOffset.y;
-    if(this.state.toTopVisible===false){
-      if (offsetY >= 4) {
-        this.setState({
-          toTopVisible: true,
-        });
-      }
-    }
-  };
-
-
   render() {
     const { news, getNews, navigation } = this.props;
     let newsComp = [];
@@ -44,7 +32,7 @@ class newsView extends React.Component {
             <Card>
               <CardItem>
                 <Left>
-                  <Thumbnail source={{uri: "https://images.ulak.news/images/web/"+item.agency+".png"}} />
+                  <Thumbnail source={{uri: "https://images.ulak.news/images/web/"+item.agency+".webp"}} />
                   <Body>
                     <Text>{unescape(funcs.decodeHtmlEntity(item.title))}</Text>
                     <Text note>{item.agency_title}</Text>
@@ -74,24 +62,12 @@ class newsView extends React.Component {
       return (
         <View>
           <ScrollView
-            ref={scrollview => {
-              this.scrollview = scrollview;
-            }}
-            onScroll={event => this.handleOnScroll(event)}
             refreshControl={
               <RefreshControl refreshing={false} onRefresh={getNews} />
             }
           >
             {newsComp}
           </ScrollView>
-          <ScrollUp
-              refView="ScrollView"
-              root={this.scrollview}
-              visible={this.state.toTopVisible}
-              type="icon"
-              backgroundColor="white"
-              icon={<Icon size={27} active type="Ionicons" name="ios-arrow-up" />}
-            />
         </View>
       );
     }
